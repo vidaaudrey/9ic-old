@@ -2,7 +2,7 @@
   "name": "9ic-movtinder",
   "version": "1.0.0",
   "description": "A tinder-like web app for movies",
-  "main": "server.js",
+  "main": "server/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -28,12 +28,6 @@
     "lodash": "^3.10.1",
     "method-override": "^2.3.5",
     "morgan": "^1.6.1",
-    "node-restful": "^0.2.4", 
-
-    "alt": "^0.17.3",
-    "director": "^1.2.0",
-    "react": "^0.13.3",
-    "todomvc-app-css": "^2.0.0",
-    "todomvc-common": "^1.0.1"
+    "node-restful": "^0.2.4" 
   }
 }
