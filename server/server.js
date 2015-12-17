@@ -29,8 +29,8 @@ app.use(function(req, res, next) {
 // Connect to mongolab
 mongoose.connect('mongodb://9ic:ilove9ic@ds033125.mongolab.com:33125/movtinder')
   .connection.once('open', function() {
-    console.log('Connected to mongolab, and listening on port 3000...');
-    app.listen(3000);
+    console.log('Connected to mongolab, and listening on port' + process.env.PORT);
+    app.listen(process.env.PORT || 3000);
   });
 
 // Create User schemas for Mongodb
