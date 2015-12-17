@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var _ = require('lodash');
 var restful = require('node-restful');
+var config = require('./config/config.js');
 var Schema = mongoose.Schema;
 
 // Create the application.
@@ -27,7 +28,7 @@ app.use(function(req, res, next) {
 });
 
 // Connect to mongolab
-mongoose.connect('mongodb://9ic:ilove9ic@ds033125.mongolab.com:33125/movtinder')
+mongoose.connect(config.dbURL)
   .connection.once('open', function() {
     console.log('Connected to mongolab, and listening on port' + process.env.PORT);
     app.listen(process.env.PORT || 3000);
@@ -45,6 +46,6 @@ var User = app.user = restful.model('user', UserSchema).methods(['get', 'post', 
 User.register(app, '/users');
 
 // Fake some data. Remove this for deployment 
-require('./utils/datafaker')(User);
+require('./config/datafaker')(User);
 
 
