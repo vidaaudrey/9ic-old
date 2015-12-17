@@ -47,19 +47,4 @@ User.register(app, '/users');
 // Fake some data. Remove this for deployment 
 require('./utils/datafaker')(User);
 
-////********** Curl Requests Examples  **********
-//*************************************
-// 1. get a list of all users
-// curl http://localhost:3000/users/
 
-// 2. get a user by id 
-// curl http://localhost:3000/users/56730f9c49aa0671817c95b9
-
-// 3. delete a user by id
-// curl -X "DELETE" http://localhost:3000/users/56730f9c49aa0671817c95b9
-
-// 4.  create a user 
-// curl -d '{"username": "Audrey", "password": "123", "avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/LucasPerdidao/128.jpg"}' -H "Content-Type:application/json" http://localhost:3000/users/
-
-// 5. Update a user 
-// curl -X PUT -d '{"username": "Audrey-Updated Name"}' -H "Content-Type:application/json"  http://localhost:3000/users/567311f303b9f3fb836e3385
