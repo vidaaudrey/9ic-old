@@ -277,7 +277,7 @@
   1. *Optional render methods* like renderNavigation() or renderProfilePicture()
   1. render
 
-  - How to define propTypes, defaultProps, contextTypes, etc...  
+  - How to define propTypes, defaultProps, contextTypes, etc...
 
   ```javascript
   import React, { PropTypes } from 'react';
