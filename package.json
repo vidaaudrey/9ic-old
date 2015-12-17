@@ -1,0 +1,39 @@
+{
+  "name": "9ic-movtinder",
+  "version": "1.0.0",
+  "description": "A tinder-like web app for movies",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/9ic/9ic.git"
+  },
+  "keywords": [
+    "Tinder for Movies"
+  ],
+  "author": "9ic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/9ic/9ic/issues"
+  },
+  "homepage": "https://github.com/9ic/9ic#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "mongoose": "^4.3.1",
+    "body-parser": "^1.14.1",
+    "faker": "^3.0.1",
+    "kerberos": "0.0.17",
+    "lodash": "^3.10.1",
+    "method-override": "^2.3.5",
+    "morgan": "^1.6.1",
+    "node-restful": "^0.2.4", 
+
+    "alt": "^0.17.3",
+    "director": "^1.2.0",
+    "react": "^0.13.3",
+    "todomvc-app-css": "^2.0.0",
+    "todomvc-common": "^1.0.1"
+  }
+}
