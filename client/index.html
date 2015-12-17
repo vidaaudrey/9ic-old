@@ -10,22 +10,32 @@
     <a href="/users/" title="Users">A list of all users</a>
     <pre>
         <code>
+
          ////********** Curl Requests Examples  **********
          //***********************************************
+         // Note the id might be different as the database purged periodically, so replace with the right one 
+
          // 1. get a list of all users
+         // curl https://movtinder.herokuapp.com//users/
          // curl http://localhost:3000/users/
+
      
          // 2. get a user by id 
+         // curl https://movtinder.herokuapp.com/users/56730f9c49aa0671817c95b9
          // curl http://localhost:3000/users/56730f9c49aa0671817c95b9
      
          // 3. delete a user by id
+         // curl -X "DELETE" https://movtinder.herokuapp.com/users/56730f9c49aa0671817c95b9
          // curl -X "DELETE" http://localhost:3000/users/56730f9c49aa0671817c95b9
      
          // 4.  create a user 
+         // curl -d '{"username": "Audrey", "password": "123", "avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/LucasPerdidao/128.jpg"}' -H "Content-Type:application/json" https://movtinder.herokuapp.com/users/
          // curl -d '{"username": "Audrey", "password": "123", "avatar":"https://s3.amazonaws.com/uifaces/faces/twitter/LucasPerdidao/128.jpg"}' -H "Content-Type:application/json" http://localhost:3000/users/
      
          // 5. Update a user 
+         // curl -X PUT -d '{"username": "Audrey-Updated Name"}' -H "Content-Type:application/json"  https://movtinder.herokuapp.com/users/567311f303b9f3fb836e3385
          // curl -X PUT -d '{"username": "Audrey-Updated Name"}' -H "Content-Type:application/json"  http://localhost:3000/users/567311f303b9f3fb836e3385
+
      </code>
  </pre>
 </body>
