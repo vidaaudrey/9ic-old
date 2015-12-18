@@ -1,0 +1,4 @@
+{
+    "host": "https://movtinder.herokuapp.com/",
+    "tmdbBaseUrl": "https://api.themoviedb.org/3/movie/"
+}
