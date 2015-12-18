@@ -1,10 +1,12 @@
+require('dotenv').load();
+var env = require('./config/env.js');
+var config = require('./config/config.js');
 var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var _ = require('lodash');
 var restful = require('node-restful');
-var config = require('./config/config.js');
 var Schema = mongoose.Schema;
 var http = require('http');
 var request = require('request');
@@ -30,10 +32,10 @@ app.use(function(req, res, next) {
 });
 
 // Connect to mongolab
-mongoose.connect(config.dbURL)
+mongoose.connect(env.MONGOLAB)
 	.connection.once('open', function() {
-		console.log('Connected to mongolab, and listening on port' + process.env.PORT);
-		app.listen(process.env.PORT || 3000);
+		console.log('Connected to mongolab, and listening on port' + env.PORT);
+		app.listen(env.PORT || 3000);
 	});
 
 // Create User schemas for Mongodb
@@ -52,10 +54,13 @@ require('./config/datafaker')(User);
 
 
 // Example on how to get movie data from tmdb 
-var host = config.tmdbBaseUrl + '550?api_key=' + config.tmdbKey;
+var host = config.tmdbBaseUrl + '550?api_key=' + env.TMDBKEY;
 request(host, function (error, response, body) {
   if (!error && response.statusCode == 200) {
     console.log(body);  // will out put the json data for movies
   }
 });
+var key = env.TMDBKEY;
+var db = env.MONGOLAB;
+console.log(key,db );
 
