@@ -62,7 +62,7 @@ User.register(app, '/users');
 // require('./config/datafaker')(User);
 let datafaker = new DataFaker(User);
 
-datafaker.createUsers(10);
+datafaker.createUsers(3);
 
 // use middleware to setup CORS support,
 // handle errors for development, production, and 404
@@ -73,11 +73,11 @@ app.listen(env.PORT, (err) => {
 });
 
 // Example on how to get movie by using  moviedb
-TMDB.searchMovie({
-  query: 'Alien'
-}, function (err, res) {
-  console.log(res);
-});
+// TMDB.searchMovie({
+//   query: 'Alien'
+// }, function (err, res) {
+//   console.log(res);
+// });
 
 
 // Example on how to get movie data from tmdb
