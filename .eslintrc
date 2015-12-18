@@ -1,6 +1,11 @@
 
 {
   "parser": "babel-eslint",
+  
+  "plugins": [
+    "babel",
+    "react"
+  ],
 
   "ecmaFeatures": {
     "jsx": true,
@@ -16,8 +21,6 @@
     "mongo": true,
     "node": true
   },
-  
-  "plugins": [ "react"],
 
   "rules": {
     "comma-dangle": [
