@@ -6,6 +6,8 @@ var _ = require('lodash');
 var restful = require('node-restful');
 var config = require('./config/config.js');
 var Schema = mongoose.Schema;
+var http = require('http');
+var request = require('request');
 
 // Create the application.
 var app = express();
@@ -14,31 +16,31 @@ app.use(express.static('client'));
 
 // Add Middleware necessary for REST API's
 app.use(bodyParser.urlencoded({
-  extended: true
+	extended: true
 }));
 app.use(bodyParser.json());
 app.use(methodOverride('X-HTTP-Method-Override'));
 
 // CORS Support
 app.use(function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+	res.header('Access-Control-Allow-Headers', 'Content-Type');
+	next();
 });
 
 // Connect to mongolab
 mongoose.connect(config.dbURL)
-  .connection.once('open', function() {
-    console.log('Connected to mongolab, and listening on port' + process.env.PORT);
-    app.listen(process.env.PORT || 3000);
-  });
+	.connection.once('open', function() {
+		console.log('Connected to mongolab, and listening on port' + process.env.PORT);
+		app.listen(process.env.PORT || 3000);
+	});
 
 // Create User schemas for Mongodb
 var UserSchema = new Schema({
-  username: String,
-  password: String,
-  avatar: String
+	username: String,
+	password: String,
+	avatar: String
 });
 
 // Create the Restful middleware and register to app 
@@ -48,4 +50,12 @@ User.register(app, '/users');
 // Fake some data. Remove this for deployment 
 require('./config/datafaker')(User);
 
+
+// Example on how to get movie data from tmdb 
+var host = config.tmdbBaseUrl + '550?api_key=' + config.tmdbKey;
+request(host, function (error, response, body) {
+  if (!error && response.statusCode == 200) {
+    console.log(body);  // will out put the json data for movies
+  }
+});
 
