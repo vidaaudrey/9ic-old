@@ -1,9 +1,0 @@
-{
-    "host": "https://movtinder.herokuapp.com/", 
-    "dbURL": "mongodb://9ic:ilove9ic@ds033125.mongolab.com:33125/movtinder", 
-    "tmdbKey": "87380c54ae472259aade42db22a24d89",
-    "tmdbBaseUrl": "https://api.themoviedb.org/3/movie/",
-    "rottenTomatoKey": "pz7frmhezbjzvd4d93ae4dbd",
-    "rottenTomatoKeyBaseUrl": "http://api.rottentomatoes.com/api/public/v1.0/"
-
-}
