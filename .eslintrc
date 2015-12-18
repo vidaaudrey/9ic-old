@@ -1,5 +1,7 @@
 
 {
+  "parser": "babel-eslint",
+
   "ecmaFeatures": {
     "jsx": true,
     "modules": true
@@ -14,6 +16,8 @@
     "mongo": true,
     "node": true
   },
+  
+  "plugins": [ "react"],
 
   "rules": {
     "comma-dangle": [
@@ -164,6 +168,9 @@
       "single",
       "avoid-escape"
     ],
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/react-in-jsx-scope": 2,
     "semi": 2,
     "semi-spacing": 2,
     "space-after-keywords": 2,
