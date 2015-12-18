@@ -8,6 +8,10 @@ var _configEnv = require('./config/env');
 
 var _configEnv2 = _interopRequireDefault(_configEnv);
 
+var _configConfig = require('./config/config');
+
+var _configConfig2 = _interopRequireDefault(_configConfig);
+
 var _middlewareMiddleware = require('./middleware/middleware');
 
 var _middlewareMiddleware2 = _interopRequireDefault(_middlewareMiddleware);
@@ -39,6 +43,10 @@ var _methodOverride2 = _interopRequireDefault(_methodOverride);
 var _nodeRestful = require('node-restful');
 
 var _nodeRestful2 = _interopRequireDefault(_nodeRestful);
+
+var _request = require('request');
+
+var _request2 = _interopRequireDefault(_request);
 
 var _morgan = require('morgan');
 
@@ -96,6 +104,33 @@ User.register(app, '/users');
 var datafaker = new _configDataFaker2['default'](User);
 
 datafaker.createUsers(3);
+
+var router = _express2['default'].Router();
+
+// get a list of upcoming movies
+router.get('/movies/upcoming', function (req, res) {
+  var host = _configConfig2['default'].tmdbBaseUrl + 'upcoming?api_key=' + _configEnv2['default'].TMDBKEY;
+
+  (0, _request2['default'])(host, function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+      // body will contain the movie data in json format
+      res.send(body);
+    }
+  });
+});
+
+// get list of popular movies
+router.get('/movies', function (req, res) {
+  var host = _configConfig2['default'].tmdbBaseUrl + 'popular?api_key=' + _configEnv2['default'].TMDBKEY;
+
+  (0, _request2['default'])(host, function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+      // body will contain the movie data in json format
+      res.send(body);
+    }
+  });
+});
+app.use('/', router);
 
 // use middleware to setup CORS support,
 // handle errors for development, production, and 404

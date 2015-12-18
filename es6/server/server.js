@@ -3,6 +3,7 @@
 import {}
 from 'dotenv/config';
 import env from './config/env';
+import config from './config/config';
 import middleware from './middleware/middleware';
 import express from 'express';
 import favicon from 'serve-favicon';
@@ -11,6 +12,7 @@ import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import methodOverride from 'method-override';
 import restful from 'node-restful';
+import request from 'request';
 import logger from 'morgan';
 // import routes       from './routes/index';
 // import users        from './routes/users'
@@ -63,6 +65,34 @@ User.register(app, '/users');
 let datafaker = new DataFaker(User);
 
 datafaker.createUsers(3);
+
+let router = express.Router();
+
+// get a list of upcoming movies
+router.get('/movies/upcoming', function (req, res) {
+  let host = config.tmdbBaseUrl + 'upcoming?api_key=' + env.TMDBKEY;
+
+  request(host, function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+      // body will contain the movie data in json format
+      res.send(body);
+    }
+  });
+});
+
+// get list of popular movies
+router.get('/movies', function (req, res) {
+  let host = config.tmdbBaseUrl + 'popular?api_key=' + env.TMDBKEY;
+
+  request(host, function (error, response, body) {
+    if (!error && response.statusCode === 200) {
+      // body will contain the movie data in json format
+      res.send(body);
+    }
+  });
+});
+app.use('/', router);
+
 
 // use middleware to setup CORS support,
 // handle errors for development, production, and 404
