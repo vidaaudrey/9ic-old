@@ -18,7 +18,7 @@ import logger from 'morgan';
 // import users        from './routes/users'
 
 import SchemaFactory from './controller/SchemaFactory';
-import DataFaker from './config/DataFaker';
+import DataFaker from './config/datafaker';
 
 let TMDB = require('moviedb')(env.TMDBKEY);
 let app = express();

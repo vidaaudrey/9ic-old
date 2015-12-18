@@ -59,9 +59,9 @@ var _controllerSchemaFactory = require('./controller/SchemaFactory');
 
 var _controllerSchemaFactory2 = _interopRequireDefault(_controllerSchemaFactory);
 
-var _configDataFaker = require('./config/DataFaker');
+var _configDatafaker = require('./config/datafaker');
 
-var _configDataFaker2 = _interopRequireDefault(_configDataFaker);
+var _configDatafaker2 = _interopRequireDefault(_configDatafaker);
 
 var TMDB = require('moviedb')(_configEnv2['default'].TMDBKEY);
 var app = (0, _express2['default'])();
@@ -101,7 +101,7 @@ User.register(app, '/users');
 
 // Fake some data. Remove this for deployment
 // require('./config/datafaker')(User);
-var datafaker = new _configDataFaker2['default'](User);
+var datafaker = new _configDatafaker2['default'](User);
 
 datafaker.createUsers(3);
 

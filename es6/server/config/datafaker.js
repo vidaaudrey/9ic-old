@@ -43,5 +43,4 @@ class DataFaker {
   }
 
 }
-
 export default DataFaker;
