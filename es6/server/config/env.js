@@ -1,3 +1,4 @@
+"use strict";
 // all environment related varibles
 const env = {
   PORT: process.env.PORT,

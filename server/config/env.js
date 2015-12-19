@@ -1,6 +1,5 @@
-// all environment related varibles
 "use strict";
-
+// all environment related varibles
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
